@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Supplements site</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/e90a48e51a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        margin: 50px;
+      }
+
+      .supplements li::before {
+        left: 45px;
+        position: absolute;
+        background-color: navy;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: block;
+        content: "";
+      }
+
+      .supplements {
+        border-left: solid 1px #bdb7b7;
+        list-style: none;
+      }
+      .supplements li {
+        margin-bottom: 30px;
+        padding-left: 15px;
+      }
+      .supplements strong {
+        font-weight: bold;
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .supplements p {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="supplements">
+      <li>
+        <strong>Bloat Support</strong>
+        <p>
+          Probiotic strains LGG® & BB-12® support relief of occasional
+          discomforts such as mild and occasional bloating, gas, and diarrhea.*
+        </p>
+      </li>
+      <li>
+        <strong>Maintain Good Growth</strong>
+        <p>
+          The prebiotics are designed to target undesirable bacteria in the gut
+          and support the growth of beneficial gut bacteria.*
+        </p>
+      </li>
+      <li>
+        <strong>Gut Barrier Health</strong>
+        <p>
+          The postbiotic provides fuel to the cells that make up the gut lining
+          and supports gut barrier function.*
+        </p>
+      </li>
+      <li>
+        <strong>Immune Support</strong>
+        <p>
+          Probiotics help support immune health. It’s estimated that 70% of the
+          immune system is located in the gut.*
+        </p>
+      </li>
+    </ul>
+  </body>
+</html>
