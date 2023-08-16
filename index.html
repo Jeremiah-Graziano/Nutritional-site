@@ -9,6 +9,7 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       <script
        src="https://kit.fontawesome.com/e90a48e51a.js"
         crossorigin="anonymous"
@@ -33,7 +34,7 @@
     <img src="project-photos/alpha-lion-logo.webp" alt="alpha lion logo">
     <input type="text" placeholder="Search: Protein, Pre-Workouts, Fat Loss">
     <button>Search</button>
-    <i class="fa-solid fa-bag-shopping"></i>
+    <i class="fa-solid fa-bag-shopping" id="cartIcon"><span id="cartQty"></span></i>
   </nav>
 
     <div>
@@ -104,44 +105,41 @@
                 </li>
               </ul>
                   
-                  <strong class="enlarged-price">$147.00 <span>$411.91</span></strong>
+                  <strong class="enlarged-price"><p id="price">$7.00</p><span id="msrp">$411.91</span></strong>
                   <p class="superhuman-message">Choose superhuman burn flavor</p>
-                  <select class="col-md-6" name="budget">
-                  <option value="Price range expected">
-                    Price range expected:
-                  </option>
-                  <option value="price">SMURF JUICE (BLUE GUMMY BEAR)</option>
-                  <option value="price">
-                    CHERRY POPPER (SWEET BLACK CHERRY)
-                  </option>
-                  <option value="price">HULK JUICE (SOUR GUMMY BEAR)</option>
+                  <select class="col-md-6" name="budget" id="productSelection">
+                  <option value="">Price range expected:</option>
+                  <option value="smurf">SMURF JUICE (BLUE GUMMY BEAR)</option>
+                  <option value="cherry">CHERRY POPPER (SWEET BLACK CHERRY)</option>
+                  <option value="hulk">HULK JUICE (SOUR GUMMY BEAR)</option>
                 </select>
 
-            <div class="quanitity-buttons col-md-6">
+            <div class="quantity-buttons col-md-6">
               <div>
-                <input type="button" value="-" class="quantity"/>
+                <input type="button" value="-" class="quantity minus"/>
                 <input
                 type="number"
                 name="quantity"
                 value="1"
                 class="input-quantity"
                 />
-                <input type="button" value="+" class="quantity"/>
+                <input type="button" value="+" class="quantity plus"/>
               </div>
             </div>
               
-              <button class="col-md-2">
+              <button id="addToCart" class="col-md-2">
                 Add to cart
               </button>
-              </div>
+              <span id='cartAlert'>You must select at least one item.</span>
+              <div id="cart-summary"></div>
             </div>
           </div>
+        </div>
       </div>
-          
-          
-          
-
-        
+      <div class="fade-out" id="toast"><span></span> <p id="toastMsg" style="margin: 0">Item added to cart!</p> <i id="closeButton" class="material-symbols-outlined">
+close
+</i></div>
+      
 <div class="container">
   <div class="row sales-pitch justify-content-center">
     <div class="col-md-6">
@@ -501,5 +499,24 @@
         </div>
       </div>
     </div>
+
+
+      <div id="modal" class="container">
+        <span class="material-symbols-outlined" id="closeModal">close</span>
+        <div class="row heading">
+            <h2 class="col-lg-2">your cart</h2>
+            <p class="col-lg-2 offset-8">continue shopping</p>
+        </div>
+        <div class="row col-sm-12">
+            <ul class="cartProductDetails col-lg-12 col-6 row">
+                <li class="col-sm-12 col-lg-3">product</li>
+                <li class="col-sm-12 col-lg-3">price</li>
+                <li class="col-sm-12 col-lg-3">quantity</li>
+                <li class="col-sm-12 col-lg-3">total</li>
+            </ul>
+            <ul class="col-lg-12 col-6" id="cart-products"></ul>
+          </div>
+      </div>
   </body>
+  <script src="script.js"></script>
 </html>
