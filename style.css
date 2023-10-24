@@ -241,6 +241,12 @@ nav i {
   font-size: 15px;
 }
 
+@media screen and (max-width: 600px) {    
+  .site-nav {
+      display: none;
+  }
+}
+
 .main-product-outer {
   background-color: #e5e5e5;
 }

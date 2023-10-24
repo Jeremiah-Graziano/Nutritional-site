@@ -7,7 +7,7 @@ class Quantity {
       const initialValue = parseInt(localStorage.getItem(this.key) || "0");
       this.set(initialValue);
     }
-  }
+  };
 
   increment(n) {
     n = parseInt(n);
@@ -15,7 +15,7 @@ class Quantity {
       this.set(this.qty + n);
     }
     return this.get();
-  }
+  };
 
   decrement(n) {
     n = parseInt(n);
@@ -27,7 +27,7 @@ class Quantity {
       this.set(newQty);
     }
     return this.get();
-  }
+  };
 
   set(n) {
     n = parseInt(n);
@@ -38,12 +38,12 @@ class Quantity {
       }
     }
     return this.get();
-  }
+  };
 
   get() {
     return this.qty;
   }
-}
+};
 
 class Controls {
   constructor(qty, node) {
@@ -53,38 +53,37 @@ class Controls {
     // Synchronize the counter and display to 1 during initialization.
     if (this.qty.get() === 0) {
       this.qty.set(1);
-    }
+    };
 
     this.set(this.qty.get());
-  }
+  };
 
   increment() {
     const v = this.qty.increment(1);
     this.node.value = v;
-  }
+  };
 
   decrement() {
     const v = this.qty.decrement(1);
     this.node.value = v;
-  }
+  };
 
   set(n) {
     const v = this.qty.set(n);
     this.node.value = v;
-  }
-}
+  };
+};
 
 class Cart {
   // the products held in the cart
   products = [];
 
   // array of render functions to render each time the cart changes.
-  listeners = []
+  listeners = [];
 
   constructor() {
     // Load products from local storage
-    // Don't worry about this for now.
-  }
+  };
 
   getProductQuantity(key) {
     const product = this.products.find((product) => key === product.key);
@@ -110,17 +109,17 @@ class Cart {
       name: name,
     });
     this.notify();
-  }
+  };
 
   removeProduct(key) {
     this.products = this.products.filter(product => product.key !== key)
     this.notify();
-  }
+  };
 
   setProductQuantity(key, qty) {
     if (qty === 0) {
       return this.removeProduct(key);
-    }
+    };
     
     const product = this.products.find((product) => key === product.key);
     if (product) {
@@ -136,35 +135,31 @@ class Cart {
   empty() {
     this.products = [];
     this.notify();
-  } 
+  };
 
   // Returns the sum quantity of all products in the cart.
   getQuantity() {
     return Object.values(this.products).reduce(
       (acc, product) => acc + product.qty.get(), 0);
-  }
-
-  // Don't worry about save for now.
-  save() {}
-
+  };
 
   addEventListeners(...events) {
     events.map((event) => this.listeners.push(event));
-  }
+  };
 
   notify() {
     this.listeners.map((event) => {
       if (typeof event === 'function') {
         event(this);
       }
-    })
-  }
-}
+    });
+  };
+};
 
 // Renders the cart quantity
 const renderCartQuantity = (cart) => {
   document.getElementById('cartQty').dataset.value = cart.getQuantity();
-}
+};
 
 // Renders cart summary
 const renderCartSummary = (cart) => {
@@ -184,14 +179,14 @@ const renderCartSummary = (cart) => {
   }
 
   summary.style.display = 'block';
-}
+};
 
 // Renders the shopping cart page.
 const renderCart = (cart) => {
   const cartProducts = document.getElementById('cart-products');
   while (cartProducts.firstChild) {
     cartProducts.removeChild(cartProducts.firstChild);
-  }
+  };
 
   const cartProductDetails = document.querySelector('.cartProductDetails');
 
@@ -202,7 +197,7 @@ const renderCart = (cart) => {
     cartProducts.appendChild(li);
   } else {
     cartProductDetails.style.display = 'block';
-  }
+  };
 
   // Render the list for each product
   cart.products.forEach(product => {
